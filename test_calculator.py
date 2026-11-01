@@ -17,6 +17,10 @@ def test_empty_grades():
         calculate_average([])
 
 
+def test_is_passing_with_exactly_10():
+    assert is_passing(10) is True
+
+
 def test_grade_categories():
     assert get_grade_category(17) == "Excellent"
     assert get_grade_category(13) == "Good"
