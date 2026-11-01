@@ -1,23 +1,21 @@
-import pytest
-from calculator import calculate_average, is_passing
-from calculator import get_grade_category
-
-def test_calculate_average():
-    assert calculate_average([10, 12, 14]) == 12
 
 
-def test_is_passing():
-    assert is_passing(12) is True
-    assert is_passing(8) is False
+def calculate_average(grades):
+    if not grades:
+        raise ValueError("The grades list cannot be empty")
+    return sum(grades) / len(grades)
 
 
-def test_empty_grades():
-    with pytest.raises(ValueError):
-        calculate_average([])
+def is_passing(average):
+    return average >= 10
 
 
-def test_grade_categories():
-    assert get_grade_category(17) == "Excellent"
-    assert get_grade_category(13) == "Good"
-    assert get_grade_category(10.5) == "Average"
-    assert get_grade_category(7) == "Fail"
+def get_grade_category(average):
+    if average >= 16:
+        return "Excellent"
+    elif average >= 12:
+        return "Good"
+    elif average >= 10:
+        return "Average"
+    else:
+        return "Fail"
