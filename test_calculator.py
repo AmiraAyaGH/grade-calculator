@@ -17,7 +17,6 @@ def test_empty_grades():
         calculate_average([])
 
 
-fix/passing-grade
 def test_is_passing_with_exactly_10():
     assert is_passing(10) is True
 
